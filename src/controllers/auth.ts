@@ -14,11 +14,11 @@ export async function loginController(req: Request, res: Response) {
   } catch (error) {
     console.log(error);
     if (error == authErrors.incorrect_data) {
-      return res.status(401).send(error);
+      return res.status(403).send(error);
     }
 
     if (error == authErrors.user_not_found) {
-      return res.status(401).send(error);
+      return res.status(400).send(error);
     }
 
     return res.status(500).send({
